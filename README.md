@@ -2,7 +2,9 @@
 Watcher of inputs
 
 #usage:
+
 $(function() {
+
 	// init callback function
 	var foo1 = function (value, element) {
 		console.log('foo1',value, element);
@@ -19,4 +21,5 @@ $(function() {
 	
 	//stop watchign
 	w.break();
+	
 });
