@@ -2,6 +2,7 @@ $(function() {
 	var watcher_ = function(node) {
 		this.__proto__ = new watcher_proto();
 		this.callback = null;
+		this.debug = false;
 
 		if(node.length>1) {
 			throw new Error('only 4 single elements');
@@ -51,7 +52,9 @@ $(function() {
 
 	var watcher_proto = function() {
 		this.loger = function(text, type) {
-			console.log(text)
+			if(this.debug){
+				console.log(text)
+			}
 		}
 
 		this.set_callback = function(function_name) {
@@ -60,7 +63,8 @@ $(function() {
 		}
 
 		this.break = function() {
-			element = null;
+			this.element = null;
+			this.callback = null;
 			return this;
 		}
 	}

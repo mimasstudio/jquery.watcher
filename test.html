@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+	<input id="i1" type="text">
+	<input id="i2" type="text">
+	<textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+<script  src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+<script  src="jquery.watcher.js" ></script>
+<script>
+	$(function() {
+		var foo1 = function (value, element) {
+			console.log('foo1',value, element);
+		}
+
+		var foo2 = function (value, element) {
+			console.log('foo2',value, element);
+		}
+
+		var w = $('textarea').watcher().set_callback(foo1);
+		$('#i1').watcher().set_callback(foo1);
+		$('#i2').watcher().set_callback(foo2);
+	});
+</script>
+</html>
